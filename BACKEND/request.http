@@ -1,0 +1,27 @@
+GET http://localhost:3001/api/notas
+
+###
+GET http://localhost:3001/api/notas/1234
+
+###
+
+POST http://localhost:3001/api/notas
+Content-Type: application/json
+
+{
+  "title": "Nota de prueba",
+  "content": "Contenido de la nota de prueba"
+}
+
+###
+
+DELETE http://localhost:3001/api/notas/1010
+
+###
+PUT http://localhost:3001/api/notas/1010
+Content-Type: application/json
+
+{
+  "title": "Nota actualizada",
+  "content": "Contenido actualizado de la nota"
+}
