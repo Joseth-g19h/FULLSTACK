@@ -1,27 +1,27 @@
-GET http://localhost:3001/api/notas
+GET http://localhost:3000/api/notas
 
 ###
-GET http://localhost:3001/api/notas/1234
+GET http://localhost:3000/api/notas/68dc4fe20649184643979f0d
 
 ###
 
-POST http://localhost:3001/api/notas
+POST http://localhost:3000/api/notas
 Content-Type: application/json
 
 {
-  "title": "Nota de prueba",
-  "content": "Contenido de la nota de prueba"
+  "title": "Segunda nota creada para mi db",
+  "content": "Contenido de la segunda nota creada para mi db"
 }
 
 ###
 
-DELETE http://localhost:3001/api/notas/1010
+DELETE http://localhost:3000/api/notas/68dc4fe20649184643979f0d
 
 ###
-PUT http://localhost:3001/api/notas/1010
+PUT http://localhost:3000/api/notas/68dc4cdee36b22732c0b5ce2
 Content-Type: application/json
 
 {
-  "title": "Nota actualizada",
+  "title": "Nota actualizada nueva",
   "content": "Contenido actualizado de la nota"
 }
