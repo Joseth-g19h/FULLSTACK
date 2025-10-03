@@ -10,7 +10,7 @@ export const Cardnote = () => {
           title and actions parts
         </p>
         <div className="flex justify-between items-center mt-6">
-          <time datetime="">25 de Marzo de 2025</time>
+          <time dateTime="">25 de Marzo de 2025</time>
           <div className="flex gap-4">
             <SquarePen className="text-white cursor-pointer"> </SquarePen>
             <Trash className="text-red-400 cursor-pointer"></Trash>
