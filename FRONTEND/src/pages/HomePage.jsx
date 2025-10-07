@@ -21,12 +21,19 @@ const HomePage = () => {
     };
     fetchData();
   }, []);
+
+  
+
   return (
     <div className="grid grid-cols-[repeat(auto-fit,_minmax(280px,_1fr))] gap-4 xl:grid-cols-[repeat(auto-fit,_minmax(350px,_1fr))]"> 
-        <Cardnote></Cardnote>
-        <Cardnote></Cardnote>
-        <Cardnote></Cardnote>
-        <Cardnote></Cardnote>
+        {notes.map((note) => (
+          <Cardnote 
+          key={note.id} 
+          title={note.title}
+          content={note.content}
+          id={note.id}
+          />
+        ))}
     </div>
   );
 }
