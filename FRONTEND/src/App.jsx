@@ -18,15 +18,17 @@ function App() {
           element={<EditNotePage></EditNotePage>}
         ></Route>
       </Routes>
-      <ToastContainer position="bottom-right"
-       autoClose={3000}
-       hideProgressBar={false}
-       newestOnTop={true}
-       closeOnClick
-       rtl={false}
-       pauseOnFocusLoss
-       draggable
-       theme="light" />
+      <ToastContainer
+        position="bottom-right"
+        autoClose={3000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        theme="light"
+      />
     </div>
   );
 }

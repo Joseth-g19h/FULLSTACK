@@ -1,33 +1,40 @@
-import NoteForm from "../components/NoteForm"
-import axios from "axios"
-import { toast } from "react-toastify"
+import NoteForm from "../components/NoteForm";
+import axios from "axios";
+import { toast } from "react-toastify";
+import { useNavigate } from "react-router-dom";
 
 const CreateNotePage = () => {
+  const navigate = useNavigate();
   const handleCreate = async (note) => {
     try {
-      await axios.post(`${import.meta.env.VITE_API_URL}/api/notas`, note)
-      .then(res => {
-        if(res.status === 201) {
-          throw new Error("Error al crear la nota");
-        }
-
-        toast.success("Nota creada con exito", {
+      const res = await axios.post(`${import.meta.env.VITE_API_URL}/api/notas`, note);
+      
+      if (res.status === 201) {
+        toast.success("Nota creada con éxito", {
           position: "bottom-center",
           autoClose: 3000,
-          theme: "colored"
+          theme: "colored",
         });
-        Navigate("/")
-      });
+        navigate("/");
+      }
     } catch (error) {
-      console.log(error);
+      console.error(error);
+      toast.error("Error al crear la nota", {
+        position: "bottom-center",
+        autoClose: 3000,
+        theme: "colored",
+      });
     }
-  };
+  }
 
   return (
     <div>
-      <NoteForm onSubmit={handleCreate} initialData={{ title: "", content: "" }} />
+      <NoteForm
+        onSubmit={handleCreate}
+        initialData={{ title: "", content: "" }}
+      />
     </div>
-  )
-}
+  );
+};
 
-export default CreateNotePage
+export default CreateNotePage;

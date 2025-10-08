@@ -2,7 +2,7 @@ import React from "react";
 import { SquarePen, Trash } from "lucide-react";
 
 //id 
-const Cardnote = ({ title, content, date }) => {
+const Cardnote = ({ title, content, id, date }) => {
   return (
     <div className="card bg-base-100 w-96 shadow-sm">
       <div className="card-body">

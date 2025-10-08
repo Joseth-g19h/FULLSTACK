@@ -1,10 +1,13 @@
-import { useState } from "react";
-const NoteForm = ({ onSubmit, initialData }) => {
-  const [note, setNotes] = useState(initialData);
+import { useEffect, useState } from "react";
 
-  //Necesitar actualizar los cambios si los datos inciales cambian
+const NoteForm = ({ onSubmit, initialData }) => {  
+  const [note, setNotes] = useState(initialData || { title: "", content: "" });
+
+  // Necesitar actualizar los cambios si los datos iniciales cambian
   useEffect(() => {
-    setNotes(initialData);
+    if (initialData) {  // ✅ Verificar que existaw
+      setNotes(initialData);
+    }
   }, [initialData]);
 
   const handleChange = (e) => {
@@ -18,6 +21,7 @@ const NoteForm = ({ onSubmit, initialData }) => {
     e.preventDefault();
     onSubmit(note);
   };
+
   return (
     <form onSubmit={handleSubmit} className="bg-base-300 rounded-lg max-w-4xl mx-auto p-10">
       <input
@@ -32,8 +36,8 @@ const NoteForm = ({ onSubmit, initialData }) => {
       />
       <textarea
         className="input lg:input-lg resize-y w-full mb-8 textarea focus:outline-0 border-0"
-        name="description"
-        id="description"
+        name="content"  // ✅ Cambiar "description" por "content"
+        id="content"     // ✅ Cambiar id también
         value={note.content}
         onChange={handleChange}
         placeholder="Descripción de la tarea"
@@ -43,4 +47,5 @@ const NoteForm = ({ onSubmit, initialData }) => {
     </form>
   );
 };
+
 export default NoteForm;

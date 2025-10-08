@@ -9,8 +9,8 @@ POST http://localhost:3000/api/notas
 Content-Type: application/json
 
 {
-  "title": "Segunda nota creada para mi db",
-  "content": "Contenido de la segunda nota creada para mi db"
+  "title": "Nota creada desde el backend",
+  "content": "Contenido de la segunda nota creada desde el backend"
 }
 
 ###
