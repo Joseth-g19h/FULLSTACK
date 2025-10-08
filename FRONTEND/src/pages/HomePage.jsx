@@ -1,7 +1,8 @@
-import React, { use } from 'react'
-import { Cardnote } from '../components/Cardnote';
+
+import Cardnote  from '../components/Cardnote';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import FormatData from '../../utils/FormatDate';
 const apiURL = import.meta.env.VITE_API_URL;
 
 const HomePage = () => {
@@ -16,13 +17,13 @@ const HomePage = () => {
         setLoading(false);
         console.log(response);
       } catch (error) {
-        console.error(error);
+        console.log(error);
       }
     };
     fetchData();
   }, []);
 
-  
+  if (loading) return <span>Cargando...</span>;
 
   return (
     <div className="grid grid-cols-[repeat(auto-fit,_minmax(280px,_1fr))] gap-4 xl:grid-cols-[repeat(auto-fit,_minmax(350px,_1fr))]"> 
@@ -32,6 +33,7 @@ const HomePage = () => {
           title={note.title}
           content={note.content}
           id={note.id}
+          date={FormatData(note.createdAt)}
           />
         ))}
     </div>

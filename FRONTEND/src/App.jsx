@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import CreateNotePage from "./pages/CreateNotePage";
 import EditNotePage from "./pages/EditNotePage";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
@@ -17,6 +18,15 @@ function App() {
           element={<EditNotePage></EditNotePage>}
         ></Route>
       </Routes>
+      <ToastContainer position="bottom-right"
+       autoClose={3000}
+       hideProgressBar={false}
+       newestOnTop={true}
+       closeOnClick
+       rtl={false}
+       pauseOnFocusLoss
+       draggable
+       theme="light" />
     </div>
   );
 }
